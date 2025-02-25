@@ -1,0 +1,17 @@
+2025-02-25T16:35:47.904+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] EmployeePayrollAppDevelopmentApplication : Starting SpringEmployeePayrollAppDevelopmentApplication using Java 22.0.1 with PID 14276 (D:\CG lab work\Spring_EmployeePayrollApp_Development\target\classes started by chatu in D:\CG lab work\Spring_EmployeePayrollApp_Development)
+2025-02-25T16:35:47.904+05:30 DEBUG 14276 --- [Spring_EmployeePayrollApp_Development] [main] EmployeePayrollAppDevelopmentApplication : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-02-25T16:35:47.904+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] EmployeePayrollAppDevelopmentApplication : No active profile set, falling back to 1 default profile: "default"
+2025-02-25T16:35:49.721+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-02-25T16:35:49.753+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-25T16:35:49.753+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-25T16:35:49.864+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-25T16:35:49.864+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1870 ms
+2025-02-25T16:35:50.615+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-02-25T16:35:50.627+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [main] EmployeePayrollAppDevelopmentApplication : Started SpringEmployeePayrollAppDevelopmentApplication in 3.697 seconds (process running for 4.977)
+2025-02-25T16:36:20.016+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-25T16:36:20.016+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-25T16:36:20.019+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-02-25T16:36:20.243+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [http-nio-8080-exec-2] c.s.c.EmployeePayrollController          : Creating new employee: com.spring_employeepayrollapp_development.model.EmployeeModel@7608640
+2025-02-25T16:36:23.764+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [http-nio-8080-exec-1] c.s.c.EmployeePayrollController          : Fetching all employees
+2025-02-25T16:36:43.319+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-25T16:36:43.335+05:30  INFO 14276 --- [Spring_EmployeePayrollApp_Development] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
