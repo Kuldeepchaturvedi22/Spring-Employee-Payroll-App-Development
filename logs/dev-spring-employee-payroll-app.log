@@ -1,15 +1,41 @@
-2025-02-27 10:35:02 [main] INFO  c.s.SpringEmployeePayrollAppDevelopmentApplication - Starting SpringEmployeePayrollAppDevelopmentApplication using Java 22.0.1 with PID 2416 (D:\CG lab work\Spring_EmployeePayrollApp_Development\target\classes started by chatu in D:\CG lab work\Spring_EmployeePayrollApp_Development)
-2025-02-27 10:35:02 [main] DEBUG c.s.SpringEmployeePayrollAppDevelopmentApplication - Running with Spring Boot v3.4.3, Spring v6.2.3
-2025-02-27 10:35:02 [main] INFO  c.s.SpringEmployeePayrollAppDevelopmentApplication - The following 1 profile is active: "dev"
-2025-02-27 10:35:05 [main] INFO  c.s.SpringEmployeePayrollAppDevelopmentApplication - Started SpringEmployeePayrollAppDevelopmentApplication in 3.833 seconds (process running for 4.788)
-2025-02-27 10:35:24 [http-nio-8080-exec-2] INFO  c.s.c.EmployeePayrollController - Creating new employee: com.spring_employeepayrollapp_development.model.EmployeeModel@e69bc7b
-2025-02-27 10:35:27 [http-nio-8080-exec-6] INFO  c.s.c.EmployeePayrollController - Fetching all employees
-2025-02-27 10:35:34 [http-nio-8080-exec-8] INFO  c.s.c.EmployeePayrollController - Updating employee with ID: 1
-2025-02-27 10:35:34 [http-nio-8080-exec-8] WARN  c.s.c.EmployeePayrollController - Employee with ID: 1 not found
-2025-02-27 10:35:39 [http-nio-8080-exec-5] INFO  c.s.c.EmployeePayrollController - Updating employee with ID: 1
-2025-02-27 10:35:39 [http-nio-8080-exec-5] WARN  c.s.c.EmployeePayrollController - Employee with ID: 1 not found
-2025-02-27 10:35:46 [http-nio-8080-exec-3] INFO  c.s.c.EmployeePayrollController - Updating employee with ID: 1
-2025-02-27 10:35:46 [http-nio-8080-exec-3] WARN  c.s.c.EmployeePayrollController - Employee with ID: 1 not found
-2025-02-27 10:35:53 [http-nio-8080-exec-7] INFO  c.s.c.EmployeePayrollController - Creating new employee: com.spring_employeepayrollapp_development.model.EmployeeModel@44fa741e
-2025-02-27 10:35:56 [http-nio-8080-exec-4] INFO  c.s.c.EmployeePayrollController - Updating employee with ID: 1
-2025-02-27 10:36:03 [http-nio-8080-exec-9] INFO  c.s.c.EmployeePayrollController - Deleting employee with ID: 1
+2025-02-27 12:05:33 [main] INFO  c.s.SpringEmployeePayrollAppDevelopmentApplication - Starting SpringEmployeePayrollAppDevelopmentApplication using Java 22.0.1 with PID 19180 (D:\CG lab work\Spring_EmployeePayrollApp_Development\target\classes started by chatu in D:\CG lab work\Spring_EmployeePayrollApp_Development)
+2025-02-27 12:05:33 [main] INFO  c.s.SpringEmployeePayrollAppDevelopmentApplication - The following 1 profile is active: "dev"
+2025-02-27 12:05:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-27 12:05:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+2025-02-27 12:05:34 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-02-27 12:05:34 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-27 12:05:34 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-02-27 12:05:35 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-27 12:05:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1710 ms
+2025-02-27 12:05:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-27 12:05:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-02-27 12:05:35 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-27 12:05:35 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-27 12:05:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-27 12:05:36 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59b447a4
+2025-02-27 12:05:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-27 12:05:36 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-27 12:05:36 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-27 12:05:36 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-27 12:05:37 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-27 12:05:37 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-27 12:05:37 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-27 12:05:37 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-02-27 12:05:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-02-27 12:05:38 [main] INFO  c.s.SpringEmployeePayrollAppDevelopmentApplication - Started SpringEmployeePayrollAppDevelopmentApplication in 5.651 seconds (process running for 6.666)
+2025-02-27 12:05:49 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-27 12:05:49 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-02-27 12:05:49 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-02-27 12:05:49 [http-nio-8080-exec-2] INFO  c.s.c.EmployeePayrollController - Creating new employee: com.spring_employeepayrollapp_development.model.EmployeeModel@1f461575
+2025-02-27 12:06:56 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-27 12:06:56 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-02-27 12:06:56 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-27 12:06:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-27 12:06:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

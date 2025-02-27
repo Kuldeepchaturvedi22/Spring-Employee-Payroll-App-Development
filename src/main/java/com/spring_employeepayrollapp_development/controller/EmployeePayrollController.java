@@ -2,6 +2,7 @@ package com.spring_employeepayrollapp_development.controller;
 
 import com.spring_employeepayrollapp_development.model.EmployeeModel;
 import com.spring_employeepayrollapp_development.service.EmployeePayrollService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,14 +41,15 @@ public class EmployeePayrollController {
 
     // POST - Create new employee
     @PostMapping
-    public ResponseEntity<EmployeeModel> createEmployee(@RequestBody EmployeeModel employeeData) {
+    public ResponseEntity<?> createEmployee(@Valid @RequestBody EmployeeModel employeeData) {
         log.info("Creating new employee: {}", employeeData);
         return new ResponseEntity<>(employeePayrollService.createEmployee(employeeData), HttpStatus.CREATED);
     }
 
     // PUT - Update existing employee
+
     @PutMapping("/{id}")
-    public ResponseEntity<EmployeeModel> updateEmployee(@PathVariable int id, @RequestBody EmployeeModel employeeData) {
+    public ResponseEntity<?> updateEmployee(@PathVariable int id, @Valid @RequestBody EmployeeModel employeeData) {
         log.info("Updating employee with ID: {}", id);
         EmployeeModel updatedEmployee = employeePayrollService.updateEmployee(id, employeeData);
         if (updatedEmployee != null) {
