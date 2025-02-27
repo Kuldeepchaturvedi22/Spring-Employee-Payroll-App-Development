@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmployeeModel {
-    private int id;
+
     private String name;
     private double salary;
 }
