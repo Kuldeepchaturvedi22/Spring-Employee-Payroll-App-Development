@@ -1,5 +1,6 @@
 package com.spring_employeepayrollapp_development.service;
 
+import com.spring_employeepayrollapp_development.exception.EmployeeNotFoundException;
 import com.spring_employeepayrollapp_development.model.EmployeeModel;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class EmployeePayrollService {
         if (id >= 0 && id < employeeList.size()) {
             return employeeList.get(id);
         } else {
-            return null;
+            throw new EmployeeNotFoundException("Employee with ID " + id + " not found");
         }
     }
 
@@ -32,7 +33,7 @@ public class EmployeePayrollService {
             employeeList.set(id, employeeData);
             return employeeData;
         } else {
-            return null;
+            throw new EmployeeNotFoundException("Employee with ID " + id + " not found");
         }
     }
 
@@ -41,7 +42,7 @@ public class EmployeePayrollService {
             employeeList.remove(id);
             return true;
         } else {
-            return false;
+            throw new EmployeeNotFoundException("Employee with ID " + id + " not found");
         }
     }
 }
