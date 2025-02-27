@@ -1,76 +1,67 @@
 package com.spring_employeepayrollapp_development.controller;
 
-import com.spring_employeepayrollapp_development.model.EmployeeModel;
+import com.spring_employeepayrollapp_development.dto.EmployeeDTO;
 import com.spring_employeepayrollapp_development.service.EmployeePayrollService;
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/employee")
-@Slf4j
 public class EmployeePayrollController {
 
     @Autowired
     private EmployeePayrollService employeePayrollService;
 
     @GetMapping
-    public ResponseEntity<List<EmployeeModel>> getAllEmployees() {
-        log.info("Fetching all employees");
-        return new ResponseEntity<>(employeePayrollService.getAllEmployees(), HttpStatus.OK);
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployees() {
+        List<EmployeeDTO> employeeDTO = employeePayrollService.getAllEmployees();
+        if (employeeDTO!=null) {
+            return ResponseEntity.ok(employeeDTO);
+        }else {
+            return ResponseEntity.noContent().build();
+        }
     }
 
-    // GET employee by ID
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeModel> getEmployee(@PathVariable int id) {
-        log.info("Fetching employee with ID: {}", id);
-        EmployeeModel employee = employeePayrollService.getEmployeeById(id);
-        if (employee != null) {
-            return new ResponseEntity<>(employee, HttpStatus.OK);
-        } else {
-            log.warn("Employee with ID: {} not found", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
+        EmployeeDTO employee = employeePayrollService.getEmployeeById(id);
+        if (employee!=null){
+            return ResponseEntity.ok(employee);
+        }else {
+            return ResponseEntity.notFound().build();
         }
     }
-
-    // POST - Create new employee
     @PostMapping
-    public ResponseEntity<EmployeeModel> createEmployee(@Valid @RequestBody EmployeeModel employeeData) {
-        log.info("Creating new employee: {}", employeeData);
-        return new ResponseEntity<>(employeePayrollService.createEmployee(employeeData), HttpStatus.CREATED);
+    public ResponseEntity<EmployeeDTO> createEmployee(@Valid @RequestBody EmployeeDTO employee) {
+        EmployeeDTO employeeDTO = employeePayrollService.addEmployee(employee);
+        if(employeeDTO!=null) {
+            return ResponseEntity.ok(employeeDTO);
+        }else {
+            return ResponseEntity.internalServerError().build();
+        }
     }
-
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateEmployee(@PathVariable int id, @Valid @RequestBody EmployeeModel employeeData, BindingResult result) {
-        log.info("Updating employee with ID: {}", id);
-        if (result.hasErrors()) {
-            log.warn("Validation errors: {}", result.getAllErrors());
-            return ResponseEntity.badRequest().body(result.getAllErrors());
-        }
-        EmployeeModel updatedEmployee = employeePayrollService.updateEmployee(id, employeeData);
-        if (updatedEmployee != null) {
-            return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
-        } else {
-            log.warn("Employee with ID: {} not found", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<?> updateEmployee(@PathVariable Long id,@Valid @RequestBody EmployeeDTO updatedEmployee) {
+        EmployeeDTO employeeDTO = employeePayrollService.updateEmployee(id,updatedEmployee);
+        if(employeeDTO!=null) return ResponseEntity.ok(employeePayrollService.updateEmployee(id,updatedEmployee));
+        Map<String, String> errors = new HashMap<>();
+        errors.put("error","ID not FOUND");
+        return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
     }
 
-    // DELETE - Delete employee
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteEmployee(@PathVariable int id) {
-        log.info("Deleting employee with ID: {}", id);
+    public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
         if (employeePayrollService.deleteEmployee(id)) {
-            return new ResponseEntity<>("ID " + id + " Deleted!", HttpStatus.OK);
-        } else {
-            log.warn("Employee with ID: {} not found", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.ok("Employee deleted successfully");
         }
+        return ResponseEntity.badRequest().body("Employee not found");
     }
 }

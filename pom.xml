@@ -56,8 +56,12 @@
             <artifactId>hibernate-validator</artifactId>
             <version>8.0.1.Final</version> <!-- Use the latest version -->
         </dependency>
-
-
+        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>

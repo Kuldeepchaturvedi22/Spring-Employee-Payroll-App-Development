@@ -1,22 +1,28 @@
 package com.spring_employeepayrollapp_development.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.*;
-
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Table;
+import lombok.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "employees")
 public class EmployeeModel {
     @Id
-    @NotNull
-    private long id;
-    @NotNull
-    @NotEmpty
-    @Pattern(regexp = "^[A-Za-z\\s]+$", message = "Name must contain only letters and spaces")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-
-    @DecimalMax(value = "9999.0")
     private double salary;
+    private String gender;
+    private LocalDate startDate;
+    private String note;
+    private String profilePic;
+    private List<String> department;
 }
