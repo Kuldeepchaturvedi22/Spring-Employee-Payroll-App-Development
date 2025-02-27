@@ -3,7 +3,6 @@ package com.spring_employeepayrollapp_development.model;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "employees")
 public class EmployeeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
