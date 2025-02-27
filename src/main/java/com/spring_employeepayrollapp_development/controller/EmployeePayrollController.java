@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,6 @@ public class EmployeePayrollController {
     @Autowired
     private EmployeePayrollService employeePayrollService;
 
-    // GET all employees
     @GetMapping
     public ResponseEntity<List<EmployeeModel>> getAllEmployees() {
         log.info("Fetching all employees");
@@ -41,16 +41,18 @@ public class EmployeePayrollController {
 
     // POST - Create new employee
     @PostMapping
-    public ResponseEntity<?> createEmployee(@Valid @RequestBody EmployeeModel employeeData) {
+    public ResponseEntity<EmployeeModel> createEmployee(@Valid @RequestBody EmployeeModel employeeData) {
         log.info("Creating new employee: {}", employeeData);
         return new ResponseEntity<>(employeePayrollService.createEmployee(employeeData), HttpStatus.CREATED);
     }
 
-    // PUT - Update existing employee
-
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateEmployee(@PathVariable int id, @Valid @RequestBody EmployeeModel employeeData) {
+    public ResponseEntity<?> updateEmployee(@PathVariable int id, @Valid @RequestBody EmployeeModel employeeData, BindingResult result) {
         log.info("Updating employee with ID: {}", id);
+        if (result.hasErrors()) {
+            log.warn("Validation errors: {}", result.getAllErrors());
+            return ResponseEntity.badRequest().body(result.getAllErrors());
+        }
         EmployeeModel updatedEmployee = employeePayrollService.updateEmployee(id, employeeData);
         if (updatedEmployee != null) {
             return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
