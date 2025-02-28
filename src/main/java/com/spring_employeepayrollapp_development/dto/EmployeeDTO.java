@@ -31,6 +31,5 @@ public class EmployeeDTO {
     @NotBlank
     public String profilePic;
 
-    @NotBlank
     public List<String> department;
 }
